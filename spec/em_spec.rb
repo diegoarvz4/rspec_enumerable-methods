@@ -33,6 +33,12 @@ describe "#my_each_with_index" do
   end
 end 
 
+describe "#my_any?" do
+    it "returns true if any element of array satisfies condition" do
+    expect([9,2,4].my_any? {|e| e % 2 == 0}).to eql(true) 
+  end
+end 
+
 
 
 =begin 
