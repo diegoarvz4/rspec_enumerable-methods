@@ -46,6 +46,7 @@ describe "#my_count" do
   it "counts number of elements that meet some condition" do
     expect([9,2,4].my_count{|item| item +=1 if item >5}).to eql(1) 
   end
+
 end 
 
 
