@@ -1,5 +1,7 @@
 #spec/em_spec.rb
-require '../lib/enumerable-methods'  #=> add this
+require './lib/enumerable-methods'  #=> add this
+
+
 
 RSpec.describe Enumerable do
     describe "#my_each" do
@@ -27,26 +29,32 @@ RSpec.describe Enumerable do
 end
 
 
-describe "#my_each_with_index" do
-    it "returns every array element with it's index" do
-    expect([9,2,4].my_each_with_index {|element, index| [element, index]}).to eql([[9, 0], [2,1], [4,2]]) 
-  end
+RSpec.describe Enumerable do
+    describe "#my_each_with_index" do
+      it "returns every array element with it's index" do
+          expect([9,150,6].my_each_with_index {|element, index| [element,index]}).to eql([[9,0],[150,1],[6,2]]) 
+      end
+  end 
 end 
 
-describe "#my_any?" do
-    it "returns true if any element of array satisfies condition" do
-    expect([9,2,4].my_any? {|e| e % 2 == 0}).to eql(true) 
-  end
+RSpec.describe Enumerable do
+    describe "#my_any?" do
+      it "returns true if any element of array satisfies condition" do
+        expect([0,500,2].my_any? {|e| e % 2 == 0}).to eql(true) 
+      end
+    end 
 end 
 
-describe "#my_count" do
-    it "counts total array elements" do
-    expect([9,2,4].my_count{|item| item +=1 }).to eql(3) 
-  end
-  it "counts number of elements that meet some condition" do
-    expect([9,2,4].my_count{|item| item +=1 if item >5}).to eql(1) 
-  end
-
+RSpec.describe Enumerable do
+  let(:test_array) { [9,2,4] }
+  describe"#my_count" do
+     it "counts total array elements" do
+    expect(test_array.my_count{|item| item +=1 }).to eql(3) 
+    end
+     it "counts number of elements that meet some condition" do
+    expect(test_array.my_count{|item| item +=1 if item >5}).to eql(1) 
+    end
+  end 
 end 
 
 
