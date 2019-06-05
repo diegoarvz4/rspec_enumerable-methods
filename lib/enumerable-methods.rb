@@ -11,12 +11,13 @@ module Enumerable
 
     def my_each_with_index
         return self unless block_given?
+        result = []
         i=0
         while i < self.length
-            yield(self[i],i)
+            result << yield(self[i],i)
             i+= 1
         end 
-        self
+        result
     end 
 
     def my_select
